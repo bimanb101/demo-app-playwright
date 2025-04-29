@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Demo Application</h1>
+        
+        <div class="link-container">
+            <a href="https://google.com" target="_blank">Go to Google</a>
+        </div>
+
+        <div class="input-group">
+            <label for="editbox">Enter Decimal Number:</label>
+            <input type="text" id="editbox" placeholder="Enter number" />
+        </div>
+
+        <div class="radio-buttons">
+            <input type="radio" id="green" name="color" />
+            <label for="green">Green</label>
+            <input type="radio" id="red" name="color" />
+            <label for="red">Red</label>
+        </div>
+
+        <div class="input-group">
+            <label for="combo">Select Value:</label>
+            <select id="combo">
+                <option value="" selected disabled>Select an option</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+            </select>
+        </div>
+
+        <!-- ComboBox Value label will be blank initially -->
+        <div id="comboboxValueLabel"></div>
+
+        <div class="disable-checkbox">
+            <label>
+                <input type="checkbox" id="disable_combobox" /> Disable ComboBox
+            </label>
+        </div>
+
+        <div class="buttons">
+            <button id="submitButton">Submit Response</button>
+            <button id="resetButton">Reset</button>
+        </div>
+    </div>
+
+    <div id="dialog" class="hidden">
+        <p>Please enter a decimal number</p>
+        <button id="closeDialogButton">OK</button>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
