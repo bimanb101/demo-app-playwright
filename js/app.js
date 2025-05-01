@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const editbox = document.getElementById('editbox');
+	editbox.focus();
     const combo = document.getElementById('combo');
-	combo.focus();
+	/* combo.focus(); */
     const greenRadio = document.getElementById('green');
     const redRadio = document.getElementById('red');
     const submitButton = document.getElementById('submitButton');
@@ -10,40 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const comboboxValueLabel = document.getElementById('comboboxValueLabel');
     const closeDialogButton = document.getElementById('closeDialogButton');
 
-    let initialEditboxValue = "0";  // Initial value for the editbox
-
-    // Function to check if the input is a decimal
-    function isDecimal(value) {
-		let isDec = /^(\d*\.\d+)$/.test(value.trim());
-		//console.log('isDecimal:', isDec);
-		return isDec;
-    }
-
-    // Handle keydown event for Tab or Enter to validate input
-	editbox.addEventListener('blur', (event) => {
-    const value = editbox.value.trim();
-    //console.log(`Current editbox value: ${value}`);
-
-    if (!isDecimal(value)) {
-        alert("Invalid input, showing dialog...");
-        // After the alert, immediately re-focus so user corrects it
-        setTimeout(() => {
-            editbox.focus();  
-			}, 0);
-		}
-	});
+    let initialEditboxValue = "";  // Initial value for the editbox
 
     // Handle the Submit button logic
     submitButton.addEventListener('click', () => {
-        const value = editbox.value.trim();
-        //console.log(`Submit button clicked. Current value: ${value}`);
-
-        if (!isDecimal(value)) {
-            //console.log("Invalid input, showing dialog...");
-            dialog.classList.remove('hidden');  // Show the dialog
-            editbox.focus();  // Keep focus on the editbox
-            return;  // Stop further execution until a valid input is entered
-        }
+        //const value = editbox.value.trim();
 
 	// Add a 0.5 second delay for color change and combobox label
     setTimeout(() => {
@@ -64,13 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		combo.disabled = disableComboCheckbox.checked;
 		}, 500);  // 500ms = 0.5 seconds
     });
-
-    // // Close the dialog and focus back to the editbox
-    // closeDialogButton.addEventListener('click', () => {
-        // console.log("Closing dialog...");
-        // dialog.classList.add('hidden');  // Hide the dialog
-        // editbox.focus();  // Focus back to the editbox
-    // });
 
     // Reset button logic
     resetButton.addEventListener('click', () => {
